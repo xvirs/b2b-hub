@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Turnero · Menos plantones, más turnos · Tu salón por WhatsApp</title>
+<style>
+  :root{
+    --teal:#0f766e; --teal-d:#115e59; --teal-l:#14b8a6; --mint:#ccfbf1;
+    --ink:#0f172a; --muted:#475569; --bg:#f8fafc; --card:#ffffff;
+    --wa:#25d366; --amber:#f59e0b; --red:#dc2626;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:0 18px}
+  .btn{display:inline-flex;align-items:center;gap:8px;border:none;border-radius:12px;padding:14px 22px;font-size:16px;font-weight:700;cursor:pointer;text-decoration:none;transition:transform .08s,box-shadow .2s}
+  .btn:active{transform:scale(.98)}
+  .btn-wa{background:var(--wa);color:#fff;box-shadow:0 8px 20px rgba(37,211,102,.35)}
+  .btn-out{background:#fff;color:var(--teal-d);border:2px solid var(--mint)}
+  /* HERO */
+  header{background:linear-gradient(160deg,#0f766e,#0e7490);color:#fff;padding:54px 0 60px;text-align:center}
+  .badge{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);padding:6px 14px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:18px}
+  header h1{font-size:34px;line-height:1.18;margin-bottom:14px;letter-spacing:-.5px}
+  header h1 b{color:#fde68a}
+  header p{font-size:17px;opacity:.94;max-width:540px;margin:0 auto 26px}
+  .hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  /* SECTIONS */
+  section{padding:46px 0}
+  h2{font-size:25px;text-align:center;margin-bottom:8px;letter-spacing:-.4px}
+  .lead{text-align:center;color:var(--muted);max-width:560px;margin:0 auto 30px}
+  /* CALCULADORA */
+  .calc{background:var(--card);border-radius:20px;box-shadow:0 16px 40px rgba(15,23,42,.10);padding:26px 22px;border:1px solid #e2e8f0}
+  .calc h3{font-size:19px;text-align:center;margin-bottom:4px}
+  .calc .hint{text-align:center;color:var(--muted);font-size:13.5px;margin-bottom:20px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:14px;font-weight:600;margin-bottom:7px}
+  .field label span{color:var(--muted);font-weight:400}
+  .field input[type=range]{width:100%;accent-color:var(--teal-l)}
+  .field .val{float:right;color:var(--teal-d);font-weight:700}
+  .result{margin-top:8px;background:linear-gradient(160deg,#ecfeff,#f0fdfa);border:1px solid var(--mint);border-radius:16px;padding:22px;text-align:center}
+  .result .lbl{font-size:13.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+  .result .lose{font-size:38px;font-weight:800;color:var(--red);margin:4px 0 2px;letter-spacing:-1px}
+  .result .rec{font-size:15px;color:var(--teal-d);font-weight:600;margin-top:10px}
+  .result .rec b{font-size:20px}
+  /* PASOS */
+  .steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+  .step{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:20px 16px;text-align:center}
+  .step .ico{font-size:30px}
+  .step h4{font-size:15px;margin:8px 0 4px}
+  .step p{font-size:13.5px;color:var(--muted)}
+  /* DIFERENCIAL */
+  .feat{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:16px 18px;margin-bottom:12px}
+  .feat .ck{color:var(--teal-l);font-size:20px;flex-shrink:0;margin-top:1px}
+  .feat b{display:block;margin-bottom:2px}
+  .feat span{color:var(--muted);font-size:14.5px}
+  /* PRECIO */
+  .price{background:linear-gradient(160deg,#0f766e,#115e59);color:#fff;border-radius:20px;padding:34px 24px;text-align:center}
+  .price .anchor{font-size:15px;opacity:.9}
+  .price .big{font-size:30px;font-weight:800;margin:10px 0;letter-spacing:-.5px}
+  .price .big b{color:#fde68a}
+  .price .free{display:inline-block;background:rgba(253,230,138,.18);border:1px solid #fde68a;color:#fde68a;border-radius:999px;padding:6px 16px;font-weight:700;font-size:14px;margin-top:6px}
+  /* CIERRE */
+  .final{text-align:center}
+  .final h2{margin-bottom:14px}
+  footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 18px 50px}
+  .edit{background:#fffbeb;border:1px dashed #f59e0b;color:#92400e;font-size:13px;border-radius:10px;padding:10px 14px;margin:18px auto 0;max-width:560px;text-align:center}
+  @media (max-width:560px){
+    header h1{font-size:27px}.steps{grid-template-columns:1fr}h2{font-size:22px}
+    .result .lose{font-size:32px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="badge">💇 Para salones y peluquerías · Córdoba</div>
+    <h1>Dejá de perder plata en <b>sillas vacías</b></h1>
+    <p>Recordatorios y reservas por WhatsApp que bajan los plantones del 20% al 5%. Tus clientas confirman con un botón. Vos seguís cortando.</p>
+    <div class="hero-cta">
+      <a class="btn btn-wa" href="https://wa.me/5493517719799?text=Hola!%20Quiero%20info%20del%20sistema%20de%20turnos%20por%20WhatsApp" id="waTop">💬 Quiero info</a>
+      <a class="btn btn-out" href="#calc">Calcular lo que pierdo →</a>
+    </div>
+  </div>
+</header>
+
+<!-- CALCULADORA -->
+<section id="calc">
+  <div class="wrap">
+    <h2>¿Cuánta plata perdés por mes?</h2>
+    <p class="lead">Movés los valores de tu salón y lo ves al instante. Sin vueltas.</p>
+    <div class="calc">
+      <h3>Calculadora de no-shows</h3>
+      <div class="hint">Ausencias sin aviso en el rubro: 15% a 25%</div>
+
+      <div class="field">
+        <label>Turnos por día <span class="val" id="vTurnos">30</span></label>
+        <input type="range" id="turnos" min="5" max="80" value="30">
+      </div>
+      <div class="field">
+        <label>Días que abrís al mes <span class="val" id="vDias">26</span></label>
+        <input type="range" id="dias" min="8" max="30" value="26">
+      </div>
+      <div class="field">
+        <label>Ticket promedio (ARS) <span class="val" id="vTicket">$15.000</span></label>
+        <input type="range" id="ticket" min="3000" max="60000" step="1000" value="15000">
+      </div>
+      <div class="field">
+        <label>Turnos que te fallan sin avisar <span class="val" id="vNoshow">20%</span></label>
+        <input type="range" id="noshow" min="5" max="35" value="20">
+      </div>
+
+      <div class="result">
+        <div class="lbl">Perdés por mes</div>
+        <div class="lose" id="lose">$2.340.000</div>
+        <div class="rec">Con Turnero recuperás aprox. <b id="rec">$1.755.000</b> / mes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section style="background:#fff">
+  <div class="wrap">
+    <h2>Cómo funciona</h2>
+    <p class="lead">Se activa en tu número de WhatsApp. No tenés que aprender nada nuevo.</p>
+    <div class="steps">
+      <div class="step"><div class="ico">⏰</div><h4>1. Avisa solo</h4><p>El día antes, le recuerda el turno a cada clienta por WhatsApp.</p></div>
+      <div class="step"><div class="ico">✅</div><h4>2. Ella confirma</h4><p>Toca un botón: Confirmo, Reprogramar o Cancelar. Si cancela, el lugar se libera.</p></div>
+      <div class="step"><div class="ico">📅</div><h4>3. Reserva sola</h4><p>Y si quiere, agenda un turno por chat sin que dejes de atender.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAL -->
+<section>
+  <div class="wrap">
+    <h2>Por qué funciona acá</h2>
+    <div style="margin-top:24px">
+      <div class="feat"><span class="ck">✔</span><div><b>Todo por WhatsApp</b><span>Tus clientas ya lo usan. No bajan ninguna app ni aprenden un sistema.</span></div></div>
+      <div class="feat"><span class="ck">✔</span><div><b>Soporte local, en Córdoba</b><span>Cualquier cosa me escribís por WhatsApp. No es un 0800 de afuera.</span></div></div>
+      <div class="feat"><span class="ck">✔</span><div><b>Listo en 48 horas</b><span>Te lo dejo configurado con tus servicios y horarios. Vos no hacés nada.</span></div></div>
+      <div class="feat"><span class="ck">✔</span><div><b>Sin permanencia</b><span>Mes a mes. Si no te sirve, lo sacás y listo.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRECIO -->
+<section style="background:#fff">
+  <div class="wrap">
+    <div class="price">
+      <div class="anchor">Si perdés ~$1.700.000 por mes en plantones…</div>
+      <div class="big">…esto sale una <b>fracción</b> de eso</div>
+      <div class="anchor">Planes desde un abono mensual fijo. El que recuperás en 3-4 turnos.</div>
+      <div class="free">🎁 Primer mes gratis para los primeros salones</div>
+    </div>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="final">
+  <div class="wrap">
+    <h2>¿Lo probás un mes, sin compromiso?</h2>
+    <p class="lead">Lo dejo andando en tu número. A fin de mes vos misma mirás cuántos turnos recuperaste.</p>
+    <a class="btn btn-wa" href="https://wa.me/5493517719799?text=Hola!%20Quiero%20probar%20el%20sistema%20de%20turnos%20en%20mi%20sal%C3%B3n" style="font-size:18px;padding:16px 28px">💬 Escribime por WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  Turnero · Agenda y recordatorios por WhatsApp para tu salón · Córdoba 🇦🇷<br>
+  <a id="ig" href="https://instagram.com/xaviereloy.r" style="color:#0f766e;text-decoration:none;font-weight:600">@xaviereloy.r</a>
+</footer>
+
+<script>
+  const $=id=>document.getElementById(id);
+  const fmt=n=>'$'+Math.round(n).toLocaleString('es-AR');
+  function calc(){
+    const t=+$('turnos').value, d=+$('dias').value, k=+$('ticket').value, ns=+$('noshow').value;
+    $('vTurnos').textContent=t;
+    $('vDias').textContent=d;
+    $('vTicket').textContent=fmt(k);
+    $('vNoshow').textContent=ns+'%';
+    const perdida=t*d*k*(ns/100);
+    // recuperás la diferencia entre no-show actual y ~5% objetivo
+    const objetivo=0.05;
+    const recupera=t*d*k*Math.max(0,(ns/100-objetivo));
+    $('lose').textContent=fmt(perdida);
+    $('rec').textContent=fmt(recupera);
+  }
+  ['turnos','dias','ticket','noshow'].forEach(id=>$(id).addEventListener('input',calc));
+  calc();
+</script>
+</body>
+</html>

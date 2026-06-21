@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan Maestro — Portfolio Xavier</title>
+<style>
+  :root{
+    --bg:#0d1117; --card:#161b22; --card2:#1c2330; --border:#2d3748;
+    --txt:#e6edf3; --dim:#8b98a8; --green:#3fb950; --amber:#d29922;
+    --blue:#58a6ff; --pink:#f778ba; --purple:#bc8cff; --red:#f85149;
+    --r:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font-family:-apple-system,'Segoe UI',Roboto,sans-serif;
+       line-height:1.45;padding:16px;max-width:860px;margin:0 auto;font-size:15px}
+  h1{font-size:1.45rem;margin-bottom:2px}
+  h2{font-size:1.12rem;margin:26px 0 10px;display:flex;align-items:center;gap:8px}
+  h2 .n{background:var(--card2);border:1px solid var(--border);border-radius:8px;
+        min-width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;
+        font-size:.85rem;color:var(--blue)}
+  .sub{color:var(--dim);font-size:.85rem;margin-bottom:18px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+        padding:14px 16px;margin-bottom:10px}
+  .grid{display:grid;grid-template-columns:1fr;gap:10px}
+  @media(min-width:560px){.grid{grid-template-columns:1fr 1fr}}
+  @media(min-width:560px){.grid3{grid-template-columns:1fr 1fr 1fr}}
+  .tag{display:inline-block;font-size:.7rem;font-weight:700;padding:2px 9px;border-radius:20px;
+       letter-spacing:.4px;text-transform:uppercase}
+  .t-live{background:#16341f;color:var(--green)} .t-build{background:#33270e;color:var(--amber)}
+  .t-next{background:#15273f;color:var(--blue)} .t-idea{background:#2a1f3d;color:var(--purple)}
+  .t-stop{background:#3d1416;color:var(--red)}
+  .big{font-size:1.5rem;font-weight:800} .money{color:var(--green);font-weight:700}
+  .dim{color:var(--dim)} .sm{font-size:.84rem}
+  details{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+          margin-bottom:8px;overflow:hidden}
+  summary{padding:12px 16px;cursor:pointer;font-weight:600;list-style:none;display:flex;
+          align-items:center;gap:8px;user-select:none}
+  summary::after{content:'▾';margin-left:auto;color:var(--dim);transition:transform .2s}
+  details[open] summary::after{transform:rotate(180deg)}
+  details .body{padding:0 16px 14px;color:var(--dim);font-size:.9rem}
+  details .body strong{color:var(--txt)}
+  ul{padding-left:18px;margin:6px 0} li{margin:4px 0}
+  table{width:100%;border-collapse:collapse;font-size:.85rem}
+  th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--border)}
+  th{color:var(--dim);font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.5px}
+  code{background:var(--card2);padding:1px 6px;border-radius:6px;font-size:.82em;color:var(--pink)}
+  .rule{display:flex;gap:12px;align-items:flex-start;padding:11px 14px;background:var(--card);
+        border:1px solid var(--border);border-radius:var(--r);margin-bottom:8px}
+  .rule .ico{font-size:1.25rem;line-height:1.3}
+  .rule b{display:block;margin-bottom:2px}
+  .rule .sm{color:var(--dim)}
+  svg{width:100%;height:auto;display:block;min-width:560px}
+  .svgwrap{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:10px;
+           overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .swipe-hint{display:none;color:var(--dim);font-size:.72rem;text-align:center;margin-top:6px}
+  @media(max-width:600px){.swipe-hint{display:block}}
+  .tl{position:relative;padding-left:24px;border-left:2px solid var(--border);margin-left:8px}
+  .tl-item{position:relative;padding-bottom:16px}
+  .tl-item::before{content:'';position:absolute;left:-31px;top:4px;width:12px;height:12px;
+        border-radius:50%;background:var(--blue);border:3px solid var(--bg)}
+  .tl-item.done::before{background:var(--green)}
+  .tl-item .when{font-size:.72rem;color:var(--dim);text-transform:uppercase;letter-spacing:.5px}
+  footer{margin:30px 0 10px;color:var(--dim);font-size:.78rem;text-align:center}
+</style>
+</head>
+<body>
+
+<h1>🗺️ Plan Maestro</h1>
+<p class="sub">Todo el portfolio en una página · Junio 2026 · 2 negocios + 1 máquina de ventas</p>
+
+<!-- ============ EL MAPA ============ -->
+<h2><span class="n">1</span> El mapa completo</h2>
+<div class="svgwrap">
+<svg viewBox="0 0 720 470" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,sans-serif">
+  <!-- Negocio 1 -->
+  <rect x="10" y="10" width="340" height="180" rx="14" fill="#16341f" stroke="#3fb950" stroke-width="1.5"/>
+  <text x="30" y="42" fill="#3fb950" font-size="19" font-weight="800">🍽️ MENUDIGITAL</text>
+  <text x="30" y="64" fill="#9fd8ab" font-size="13">Cartas digitales gastronómicas</text>
+  <rect x="30" y="78" width="140" height="26" rx="13" fill="#0d1117"/>
+  <text x="42" y="96" fill="#3fb950" font-size="12" font-weight="700">✓ VENDIENDO HOY</text>
+  <text x="30" y="130" fill="#e6edf3" font-size="13">5 cartas activas · planes $18–45k/mes</text>
+  <text x="30" y="152" fill="#9fd8ab" font-size="12">+ 16 features en roadmap (4 fases)</text>
+  <text x="30" y="172" fill="#9fd8ab" font-size="12">~58 prospectos en pipeline</text>
+
+  <!-- Negocio 2 -->
+  <rect x="370" y="10" width="340" height="180" rx="14" fill="#33270e" stroke="#d29922" stroke-width="1.5"/>
+  <text x="390" y="42" fill="#d29922" font-size="19" font-weight="800">📅 MOTOR TURNOS</text>
+  <text x="390" y="64" fill="#e3c27e" font-size="13">Gestión + bot WhatsApp multi-rubro</text>
+  <rect x="390" y="78" width="150" height="26" rx="13" fill="#0d1117"/>
+  <text x="402" y="96" fill="#d29922" font-size="12" font-weight="700">🔨 A CONSTRUIR</text>
+  <text x="390" y="130" fill="#e6edf3" font-size="13">1 motor → N productos verticales</text>
+  <text x="390" y="152" fill="#e3c27e" font-size="12">Specs completas listas para IA</text>
+  <text x="390" y="172" fill="#e3c27e" font-size="12">Carpeta: Planes-B2B/ (11 docs)</text>
+
+  <!-- Verticales -->
+  <g font-size="13" font-weight="600">
+    <rect x="370" y="210" width="160" height="44" rx="10" fill="#1c2330" stroke="#2d3748"/>
+    <text x="385" y="237" fill="#e6edf3">💇 Salones <tspan fill="#8b98a8" font-size="11">1º</tspan></text>
+    <rect x="550" y="210" width="160" height="44" rx="10" fill="#1c2330" stroke="#2d3748"/>
+    <text x="565" y="237" fill="#e6edf3">🎾 Canchas <tspan fill="#8b98a8" font-size="11">2º</tspan></text>
+    <rect x="370" y="264" width="160" height="44" rx="10" fill="#1c2330" stroke="#2d3748"/>
+    <text x="385" y="291" fill="#e6edf3">🐶 Veterinarias <tspan fill="#8b98a8" font-size="11">3º</tspan></text>
+    <rect x="550" y="264" width="160" height="44" rx="10" fill="#1c2330" stroke="#2d3748"/>
+    <text x="565" y="291" fill="#e6edf3">🏋️ Gimnasios <tspan fill="#8b98a8" font-size="11">4º</tspan></text>
+  </g>
+  <line x1="540" y1="190" x2="450" y2="210" stroke="#d29922" stroke-width="1.5"/>
+  <line x1="540" y1="190" x2="630" y2="210" stroke="#d29922" stroke-width="1.5"/>
+  <line x1="540" y1="190" x2="450" y2="264" stroke="#d29922" stroke-width="1" opacity=".5"/>
+  <line x1="540" y1="190" x2="630" y2="264" stroke="#d29922" stroke-width="1" opacity=".5"/>
+
+  <!-- Ideas futuras -->
+  <rect x="370" y="322" width="340" height="40" rx="10" fill="#2a1f3d" stroke="#bc8cff" stroke-dasharray="5 4"/>
+  <text x="385" y="347" fill="#bc8cff" font-size="12.5">💡 Después: reseñas Google · contables · distribuidoras…</text>
+
+  <!-- Sinergia -->
+  <rect x="10" y="210" width="340" height="152" rx="14" fill="#1c2330" stroke="#2d3748"/>
+  <text x="30" y="238" fill="#58a6ff" font-size="14" font-weight="700">🔗 Sinergias clave</text>
+  <text x="30" y="264" fill="#8b98a8" font-size="12.5">• El bot del Motor sirve para el bot de</text>
+  <text x="40" y="282" fill="#8b98a8" font-size="12.5">MenuDigital (feature 06) y los pedidos</text>
+  <text x="30" y="304" fill="#8b98a8" font-size="12.5">• Mismo cliente gastro: carta + pedidos</text>
+  <text x="30" y="326" fill="#8b98a8" font-size="12.5">• El Prospector reemplaza el Sheet de</text>
+  <text x="40" y="344" fill="#8b98a8" font-size="12.5">ventas y las features 14 y 16 del roadmap</text>
+
+  <!-- Maquina de ventas -->
+  <rect x="10" y="385" width="700" height="72" rx="14" fill="#15273f" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="30" y="414" fill="#58a6ff" font-size="16" font-weight="800">🚀 MÁQUINA DE VENTAS — vende los DOS negocios</text>
+  <text x="30" y="438" fill="#a8c7e8" font-size="13">Prospector (leads + score + CRM + comisiones) · Demo Bot 24/7 · Landings · Vendedores con kit</text>
+  <line x1="180" y1="362" x2="180" y2="385" stroke="#58a6ff" stroke-width="1.5"/>
+  <line x1="540" y1="362" x2="540" y2="385" stroke="#58a6ff" stroke-width="1.5"/>
+</svg>
+<div class="swipe-hint">↔️ deslizá el mapa hacia los costados</div>
+</div>
+
+<!-- ============ NEGOCIO 1 ============ -->
+<h2><span class="n">2</span> 🍽️ MenuDigital <span class="tag t-live">vendiendo</span></h2>
+
+<div class="grid grid3" style="margin-bottom:10px">
+  <div class="card"><div class="big">5</div><div class="sm dim">cartas activas (checa, 414, la-del-10, pibi, khaosan)</div></div>
+  <div class="card"><div class="big money">$18–45k</div><div class="sm dim">por mes según plan + setup $40–70k</div></div>
+  <div class="card"><div class="big">~58</div><div class="sm dim">prospectos en el pipeline de ventas</div></div>
+</div>
+
+<details>
+  <summary>💰 Los 3 planes que vendés</summary>
+  <div class="body">
+    <ul>
+      <li><strong>QR Esencial — $18k/mes</strong>: carta linda + QR + ficha del local (WiFi, mapa, horarios)</li>
+      <li><strong>Delivery & TakeAway — $30k/mes</strong>: lo anterior + carrito con pedido por WhatsApp</li>
+      <li><strong>Multi-sucursal — $45k/mes</strong>: lo anterior + varias sucursales con precios propios</li>
+    </ul>
+    <p><strong>Posicionamiento</strong> (clave, del análisis de competencia): NO sos un SaaS barato self-service (OlaClick es gratis, SoyMenu $20k). Vendés <strong>diseño a medida + "te lo hacemos nosotros"</strong>. La diferenciación es el diseño y el servicio, no las features.</p>
+  </div>
+</details>
+
+<details>
+  <summary>🧩 Sub-servicios / roadmap (16 features en 4 fases)</summary>
+  <div class="body">
+    <p><strong>Fase 1 — hacer reales los planes que ya vendés</strong> (orden estricto): ① carrito + pedido por WhatsApp · ② precios por Google Sheet · ③ agotado/oculto · ④ ficha del local.</p>
+    <p><strong>Después de Fase 1 → saltar a 13+15+16</strong> (demo-first + material de venta + outreach) para convertir el pipeline. Recién después Fase 2 según lo pidan los clientes que pagan.</p>
+    <p><strong>Fase 2 — operación</strong>: ⑤ QR por mesa · ⑥ bot WhatsApp · ⑦ panel admin del dueño · ⑧ happy hour programado.</p>
+    <p><strong>Fase 3 — inteligencia</strong>: ⑨ analytics · ⑩ multi-sucursal real · ⑪ fotos IA · ⑫ Mercado Pago.</p>
+    <p><strong>Fase 4 — tu operación</strong>: ⑬ onboarding automático · ⑭ panel pipeline · ⑮ generador de propuestas · ⑯ outreach híbrido.</p>
+    <p>📂 Cada feature tiene su MD en <code>menudigital-platform/docs/roadmap/</code></p>
+  </div>
+</details>
+
+<details>
+  <summary>⚙️ Cómo funciona por dentro (v2)</summary>
+  <div class="body">
+    <p>Astro multi-tenant (<code>/r/&lt;slug&gt;</code>) en Vercel. Cada restaurante = JSON rico (layouts por sección: cards, lista, grilla de precios, tabla de specs) + <strong>CSS a medida por local</strong> (ahí vive la personalidad — por eso no salen "todas iguales"). El motor de producción es la skill <code>menu-forge</code>: PDF de la carta → diseño JSON+CSS → validar → deploy. Referencia de calidad: <code>/r/checa</code> (92 items, 13 secciones).</p>
+  </div>
+</details>
+
+<!-- ============ NEGOCIO 2 ============ -->
+<h2><span class="n">3</span> 📅 Motor de Turnos WhatsApp <span class="tag t-build">a construir</span></h2>
+
+<div class="card sm" style="border-color:#d29922">
+  <b>La idea en una línea:</b> construís UN motor (agenda + bot WhatsApp + recordatorios + pagos) y cada rubro nuevo es una "cara" distinta que sale en 2-4 semanas. No son 10 sistemas: es 1 núcleo con 10 productos.
+</div>
+
+<details>
+  <summary>🔧 El motor (plan 01) — 7-9 semanas, lo más importante</summary>
+  <div class="body">
+    <p>Multi-tenant. El comercio administra desde un panel web mobile; el cliente final vive SOLO en WhatsApp: recibe recordatorio con botones <strong>Confirmo / Reprogramar / Cancelar</strong> y reserva con un flujo guiado (sin IA libre, botones — más barato y predecible).</p>
+    <p><strong>Stack fijo</strong> (no se negocia entre sesiones): Next.js + PostgreSQL + Drizzle + Trigger.dev + <strong>WhatsApp Cloud API oficial</strong> (jamás librerías truchas: banean el número).</p>
+    <p>Incluye el 1º vertical: <strong>salones/barberías</strong>. Primer entregable vendible en ~4-5 semanas (los recordatorios solos ya se venden).</p>
+  </div>
+</details>
+
+<details>
+  <summary>🎾 Canchas (plan 02) — +4-6 sem · agrega PAGOS</summary>
+  <div class="body">
+    <p>Pádel y F5. Reserva por WhatsApp con <strong>seña por Mercado Pago</strong> (sin seña en 30 min, el slot se libera). Turnos fijos semanales + lista de espera para horario pico. Acá nace <code>core-payments</code>, que después reusan todos. La seña es estándar cultural del rubro → venta fácil.</p>
+  </div>
+</details>
+
+<details>
+  <summary>🐶 Veterinarias (plan 03) — +3-4 sem · agrega RECORDATORIOS QUE VENDEN</summary>
+  <div class="body">
+    <p>Turnos + calendario sanitario por mascota: <em>"Firulais tiene la antirrábica vencida, ¿agendamos?"</em>. No solo evita pérdidas: <strong>genera facturación nueva</strong>. La métrica que vende: "el bot me facturó $X este mes". Agrupa vencimientos (1 mensaje por dueño, no 4) y anti-spam estricto.</p>
+  </div>
+</details>
+
+<details>
+  <summary>🏋️ Gimnasios (plan 04) — +5,5 sem · agrega CUOTAS</summary>
+  <div class="body">
+    <p>El dolor acá es la <strong>cobranza</strong>, no los turnos. Escalera automática: aviso 3 días antes con link de pago → al vencer → a los 7 días. Pago por MP acredita solo; efectivo se registra en mostrador. + cupos por clase con lista de espera + check-in semáforo verde/rojo. Métrica de venta: reducción de morosidad medible.</p>
+  </div>
+</details>
+
+<details>
+  <summary>💡 Las próximas 3 ideas (ya rankeadas, specs pendientes)</summary>
+  <div class="body">
+    <ul>
+      <li><strong>⭐ Reseñas Google automatizadas</strong> — post-servicio: 4-5 estrellas → link a Google; 1-3 → queja privada al dueño. Se vende a CUALQUIER comercio, demo de 2 min, ideal para vendedores. El mejor "segundo producto".</li>
+      <li><strong>📊 Estudios contables</strong> — avisos de vencimientos a sus clientes + recibir comprobantes por WhatsApp ordenados. Ticket alto ($60-120k), churn bajísimo.</li>
+      <li><strong>🚚 Distribuidoras mayoristas</strong> — 200 kioscos pidiendo por WhatsApp con re-pedido en un toque. El ticket más alto del portfolio ($100-250k).</li>
+    </ul>
+    <p>Banco completo con descartes en <code>Planes-B2B/IDEAS-AMPLIADAS.md</code></p>
+  </div>
+</details>
+
+<!-- ============ MAQUINA DE VENTAS ============ -->
+<h2><span class="n">4</span> 🚀 Máquina de Ventas <span class="tag t-next">spec lista</span></h2>
+
+<div class="grid">
+  <div class="card">
+    <b>🗃️ Prospector</b> <span class="sm dim">(app interna, 5-6 sem)</span>
+    <ul class="sm dim">
+      <li>Base de leads desde <b>Google Places API</b> + carga en la calle</li>
+      <li><b>Score 0-100</b> automático: a quién ir primero (IG activo + muchas reseñas + sin sistema = arriba)</li>
+      <li>CRM con seguimientos <b>forzados</b> (el 80% de las ventas se pierde por no volver a escribir)</li>
+      <li>Lista del día + ruta de visitas en el mapa</li>
+      <li>Comisiones de vendedores: se liquidan solas</li>
+    </ul>
+  </div>
+  <div class="card">
+    <b>🤖 Demo Bot</b> <span class="sm dim">(el mejor vendedor)</span>
+    <ul class="sm dim">
+      <li>Número demo publicado en todos lados</li>
+      <li>El prospecto reserva como si fuera su clienta y <b>lo entiende solo en 40 segundos</b></li>
+      <li>Al final el bot pregunta "¿lo querés en tu negocio?" → lead con consentimiento directo al Prospector</li>
+      <li>+ landings con calculadora "cuánto perdés por no-shows"</li>
+    </ul>
+  </div>
+</div>
+
+<div class="rule" style="border-color:#f85149">
+  <div class="ico">🚫</div>
+  <div><b>La única regla prohibida: WhatsApp masivo en frío</b>
+  <span class="sm">Meta banea el número — y tu negocio entero corre sobre la reputación de tus números. El contacto frío va por: visita 🥇, referidos 🥈, DM de Instagram personalizado 🥉, WhatsApp manual de a 10-15/día. La base gigante sirve para elegir A QUIÉN, no para bombardear.</span></div>
+</div>
+
+<!-- ============ REGLAS DE ORO ============ -->
+<h2><span class="n">5</span> 📌 Las 5 reglas de oro</h2>
+
+<div class="rule"><div class="ico">🛑</div><div><b>No construir sin 3 clientes comprometidos</b><span class="sm">El riesgo no es técnico (eso lo tenés resuelto) — es de adopción. Entrevistas + cartas de intención ANTES de codear cada vertical.</span></div></div>
+<div class="rule"><div class="ico">📄</div><div><b>La spec es la fuente de verdad, no el chat</b><span class="sm">Todo está documentado para que cualquier IA lo implemente: una fase por sesión, criterios de aceptación como contrato, y si algo cambia se actualiza el doc en el mismo PR.</span></div></div>
+<div class="rule"><div class="ico">🔒</div><div><b>Stack fijo, innegociable</b><span class="sm">Next.js + Postgres + Drizzle + Trigger.dev + Cloud API oficial. Si una IA sugiere "algo mejor", la respuesta es no: la consistencia del motor vale más.</span></div></div>
+<div class="rule"><div class="ico">1️⃣</div><div><b>No arrancar el vertical N+1 sin 3-5 clientes pagos en el N</b><span class="sm">Un vertical sin clientes es inventario muerto. El cuello de botella es venta y soporte, no desarrollo.</span></div></div>
+<div class="rule"><div class="ico">📦</div><div><b>Vender paquetes por rubro, no productos sueltos</b><span class="sm">Al salón: turnero + reseñas. Al resto: producto ancla + add-ons. Más módulos usa el cliente → más ticket y menos se va.</span></div></div>
+
+<!-- ============ TIMELINE ============ -->
+<h2><span class="n">6</span> 🗓️ El orden de todo (12-18 meses)</h2>
+
+<div class="card">
+<div class="tl">
+  <div class="tl-item done"><div class="when">Hoy</div><b>MenuDigital vendiendo</b> <span class="sm dim">— Fase 1 del roadmap (carrito, sheets) para hacer reales los planes + features 13/15/16 para convertir los ~58 prospectos</span></div>
+  <div class="tl-item"><div class="when">Mes 0-1</div><b>Validar el turnero</b> <span class="sm dim">— 10-15 entrevistas a salones, 3 cartas de intención. Sin esto no se construye.</span></div>
+  <div class="tl-item"><div class="when">Mes 1-3</div><b>Motor + salones</b> <span class="sm dim">— plan 01, con los pilotos involucrados. En paralelo: Prospector (P0-P3).</span></div>
+  <div class="tl-item"><div class="when">Mes 3-4</div><b>Piloto midiendo</b> <span class="sm dim">— el antes/después de no-shows ES el material de venta. + Demo Bot + landing.</span></div>
+  <div class="tl-item"><div class="when">Mes 4-6</div><b>Vender salones (vos)</b> <span class="sm dim">— 10 clientes, caso de éxito, tabla de objeciones real → nace el kit de ventas.</span></div>
+  <div class="tl-item"><div class="when">Mes 6-9</div><b>Canchas o veterinarias + 1º vendedor</b> <span class="sm dim">— según qué puerta se abra primero. Vos pasás a supervisar el embudo.</span></div>
+  <div class="tl-item"><div class="when">Mes 9-12</div><b>Gimnasios + reseñas Google</b> <span class="sm dim">— con cuotas + reseñas ya hay paquetes completos por rubro.</span></div>
+  <div class="tl-item"><div class="when">Año 1+</div><b>Escalar</b> <span class="sm dim">— meta realista año 1: 25-40 clientes pagos del motor + cartera MenuDigital. Después: más verticales, otras ciudades.</span></div>
+</div>
+</div>
+
+<!-- ============ INDICE DOCS ============ -->
+<h2><span class="n">7</span> 📂 Dónde está cada documento</h2>
+
+<div class="card">
+<table>
+  <tr><th>Qué buscás</th><th>Archivo</th></tr>
+  <tr><td>Índice del portfolio turnos + cómo usarlo con IA</td><td><code>Planes-B2B/00-INDICE.md</code></td></tr>
+  <tr><td>Planes de producto (motor, canchas, vet, gym)</td><td><code>Planes-B2B/01…04-*.md</code></td></tr>
+  <tr><td>Cómo vender + qué automatizar</td><td><code>Planes-B2B/05-MAQUINA-VENTAS.md</code></td></tr>
+  <tr><td>Spec técnica del Prospector + Demo Bot</td><td><code>Planes-B2B/06-PROSPECTOR.md</code></td></tr>
+  <tr><td>Definiciones técnicas (DB, contratos, API, jobs)</td><td><code>Planes-B2B/tecnico/T1·T2·T3</code></td></tr>
+  <tr><td>Ideas nuevas rankeadas (y descartadas)</td><td><code>Planes-B2B/IDEAS-AMPLIADAS.md</code></td></tr>
+  <tr><td>Análisis de negocio del turnero (mercado, pricing)</td><td><code>Gestion Wssp/PRODUCTO.md</code></td></tr>
+  <tr><td>Primera lista de 12 ideas</td><td><code>IDEAS-B2B-LOCALES.md</code></td></tr>
+  <tr><td>Roadmap MenuDigital (16 features)</td><td><code>menudigital-platform/docs/roadmap/</code></td></tr>
+</table>
+</div>
+
+<div class="card sm" style="border-color:#58a6ff">
+  💬 <b>Para arrancar cualquier desarrollo con una IA</b>, el prompt está en <code>Planes-B2B/00-INDICE.md</code>: <em>"Leé el plan X y los docs técnicos T1/T2/T3, implementá la Fase N exactamente como está, no cambies stack ni schema, verificá los criterios de aceptación"</em>. Una fase por sesión.
+</div>
+
+<footer>Plan Maestro · generado 12/06/2026 · abrir en el Fold: se adapta solo a pantalla externa e interna</footer>
+
+</body>
+</html>

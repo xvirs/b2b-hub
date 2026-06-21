@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Turnero — Conversación de WhatsApp</title>
+<style>
+  :root{
+    --wa-bg:#efeae2; --wa-header:#075e54; --wa-header2:#128c7e;
+    --in:#ffffff; --out:#d9fdd3; --btn:#ffffff; --link:#027eb5;
+    --txt:#111b21; --muted:#667781; --tick:#53bdeb;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#d4d4d8;color:#111;padding:24px 12px;-webkit-font-smoothing:antialiased}
+  .intro{max-width:880px;margin:0 auto 22px;text-align:center}
+  .intro h1{font-size:20px;margin-bottom:6px}
+  .intro p{font-size:14px;color:#3f3f46;line-height:1.5}
+  .intro .tip{display:inline-block;margin-top:10px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:10px;padding:8px 14px;font-size:13px}
+  .grid{display:flex;flex-wrap:wrap;gap:28px;justify-content:center;align-items:flex-start;max-width:880px;margin:0 auto}
+  .col{flex:0 0 360px;max-width:360px}
+  .col h2{text-align:center;font-size:14px;font-weight:600;color:#27272a;margin-bottom:10px}
+  /* phone */
+  .phone{background:var(--wa-bg);border-radius:26px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.25);border:6px solid #111}
+  .hdr{background:var(--wa-header);color:#fff;display:flex;align-items:center;gap:10px;padding:12px 12px}
+  .hdr .back{font-size:18px;opacity:.9}
+  .av{width:38px;height:38px;border-radius:50%;background:#cdeee3;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+  .who{line-height:1.2}
+  .who b{font-size:15px;font-weight:600}
+  .who span{font-size:12px;color:#bfe9dc}
+  .hdr .icons{margin-left:auto;display:flex;gap:16px;opacity:.9;font-size:16px}
+  .chat{padding:14px 10px 18px;display:flex;flex-direction:column;gap:8px;min-height:120px;
+        background-image:linear-gradient(rgba(239,234,226,.92),rgba(239,234,226,.92))}
+  .day{align-self:center;background:#e2f0e6;color:#5b6b63;font-size:11px;padding:4px 10px;border-radius:8px;margin:4px 0}
+  .b{max-width:84%;padding:7px 10px 6px;border-radius:10px;font-size:14.5px;line-height:1.38;position:relative;box-shadow:0 1px .5px rgba(0,0,0,.13);white-space:pre-wrap}
+  .in{background:var(--in);align-self:flex-start;border-top-left-radius:2px}
+  .out{background:var(--out);align-self:flex-end;border-top-right-radius:2px}
+  .t{display:block;text-align:right;font-size:10.5px;color:var(--muted);margin-top:2px}
+  .out .t::after{content:" ✓✓";color:var(--tick)}
+  .em{color:#075e54;font-weight:600}
+  /* quick-reply buttons attached to a message */
+  .btns{display:flex;flex-direction:column;gap:5px;max-width:84%;align-self:flex-start;margin-top:-2px}
+  .qr{background:var(--btn);color:var(--link);text-align:center;font-size:14.5px;font-weight:500;
+      padding:9px;border-radius:10px;box-shadow:0 1px .5px rgba(0,0,0,.13)}
+  .qr::before{content:"↩ ";font-size:12px;opacity:.7}
+  /* list-style message (interactive list) */
+  .listcard{background:var(--in);align-self:flex-start;max-width:84%;border-radius:10px;border-top-left-radius:2px;overflow:hidden;box-shadow:0 1px .5px rgba(0,0,0,.13)}
+  .listcard .lbody{padding:8px 10px;font-size:14.5px;line-height:1.38}
+  .listcard .lopt{border-top:1px solid #eee;padding:9px 10px;font-size:14px;display:flex;justify-content:space-between}
+  .listcard .lopt small{color:var(--muted)}
+  .listbtn{align-self:flex-start;max-width:84%;margin-top:-2px;background:#fff;color:var(--link);text-align:center;font-weight:600;font-size:14px;padding:9px;border-radius:10px;box-shadow:0 1px .5px rgba(0,0,0,.13)}
+  .listbtn::before{content:"☰ "}
+  .foot{max-width:880px;margin:22px auto 0;text-align:center;font-size:12px;color:#52525b}
+  @media print{body{background:#fff}.intro .tip{break-inside:avoid}}
+</style>
+</head>
+<body>
+
+  <div class="intro">
+    <h1>📲 Así lo vive tu clienta — Demo de Turnero</h1>
+    <p>Estas son las conversaciones <b>reales</b> que envía el sistema. Mostralas en tu celular durante la visita.</p>
+    <div class="tip">💡 Screenshoteá cada teléfono y guardalos en tu galería para mostrarlos o mandarlos por WhatsApp.</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- ====== TELÉFONO 1: RECORDATORIO (la feature estrella) ====== -->
+    <div class="col">
+      <h2>1) El recordatorio que recupera turnos</h2>
+      <div class="phone">
+        <div class="hdr">
+          <span class="back">‹</span>
+          <div class="av">💇‍♀️</div>
+          <div class="who"><b>Salón Bella</b><span>en línea</span></div>
+          <div class="icons">📞 ⋮</div>
+        </div>
+        <div class="chat">
+          <div class="day">HOY</div>
+          <div class="b in">¡Hola Marcela! 👋 Te recordamos tu turno en <span class="em">Salón Bella</span>:
+
+🗓️ Jueves 22/06 a las 15:00
+✂️ Color + corte con Paula
+
+¿Lo confirmás?<span class="t">14:02</span></div>
+          <div class="btns">
+            <div class="qr">Confirmo ✅</div>
+            <div class="qr">Reprogramar</div>
+            <div class="qr">Cancelar</div>
+          </div>
+          <div class="b out">Confirmo ✅<span class="t">14:05</span></div>
+          <div class="b in">¡Listo! Te esperamos 🙌 Cualquier cosa, escribinos por acá.<span class="t">14:05</span></div>
+        </div>
+      </div>
+      <p style="text-align:center;font-size:12.5px;color:#52525b;margin-top:10px">
+        Si toca <b>Cancelar</b>, el lugar se libera solo para otra clienta.<br>Si toca <b>Reprogramar</b>, el bot le ofrece nuevos horarios.</p>
+    </div>
+
+    <!-- ====== TELÉFONO 2: RESERVA SOLA ====== -->
+    <div class="col">
+      <h2>2) La clienta reserva sola (sin molestarte)</h2>
+      <div class="phone">
+        <div class="hdr">
+          <span class="back">‹</span>
+          <div class="av">💇‍♀️</div>
+          <div class="who"><b>Salón Bella</b><span>en línea</span></div>
+          <div class="icons">📞 ⋮</div>
+        </div>
+        <div class="chat">
+          <div class="day">HOY</div>
+          <div class="b out">Hola, quiero un turno<span class="t">19:40</span></div>
+          <div class="b in">¡Hola! 👋 ¿Qué querés hacer?<span class="t">19:40</span></div>
+          <div class="btns">
+            <div class="qr">Reservar turno</div>
+            <div class="qr">Mis turnos</div>
+            <div class="qr">Hablar con el salón</div>
+          </div>
+          <div class="b out">Reservar turno<span class="t">19:41</span></div>
+          <!-- lista de servicios -->
+          <div class="listcard">
+            <div class="lbody">¿Qué servicio querés? ✂️</div>
+            <div class="lopt"><span>Corte</span><small>30 min</small></div>
+            <div class="lopt"><span>Color</span><small>90 min</small></div>
+            <div class="lopt"><span>Brushing</span><small>45 min</small></div>
+          </div>
+          <div class="b out">Color<span class="t">19:41</span></div>
+          <div class="b in">¡Genial! ¿Con quién y qué día? 💁<span class="t">19:41</span></div>
+          <div class="b out">Paula · jueves 15:00<span class="t">19:42</span></div>
+          <!-- confirmación -->
+          <div class="b in">Confirmás tu turno?
+
+<span class="em">Color</span> con <span class="em">Paula</span>
+jue 22/06 a las 15:00 hs<span class="t">19:42</span></div>
+          <div class="btns">
+            <div class="qr">Confirmar ✅</div>
+            <div class="qr">Cambiar</div>
+            <div class="qr">Cancelar</div>
+          </div>
+          <div class="b out">Confirmar ✅<span class="t">19:42</span></div>
+          <div class="b in">¡Listo Marcela! Tu turno quedó agendado 🎉 Te vamos a recordar un día antes.<span class="t">19:42</span></div>
+        </div>
+      </div>
+      <p style="text-align:center;font-size:12.5px;color:#52525b;margin-top:10px">
+        Reservó en <b>40 segundos</b>, sin llamarte ni que dejes de atender.<br>El turno aparece solo en tu agenda del panel.</p>
+    </div>
+
+  </div>
+
+  <div class="foot">Turnero · Agenda y recordatorios por WhatsApp para tu salón · Córdoba 🇦🇷</div>
+
+</body>
+</html>

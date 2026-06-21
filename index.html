@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centro de Mando · Negocio B2B (Córdoba)</title>
+<style>
+  :root{
+    --bg:#0b1120; --bg2:#0f172a; --card:#15203a; --card2:#1b2745;
+    --line:#243355; --teal:#2dd4bf; --teal-d:#0f766e; --ink:#e7ecf3; --muted:#94a3b8;
+    --amber:#fbbf24; --green:#34d399; --red:#f87171; --blue:#60a5fa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:
+    radial-gradient(1200px 600px at 80% -10%,#10283a 0,transparent 60%),var(--bg);
+    color:var(--ink);line-height:1.55;padding-bottom:50px}
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  /* header */
+  header{padding:46px 0 26px;text-align:center;border-bottom:1px solid var(--line)}
+  .kicker{color:var(--teal);font-weight:700;letter-spacing:2px;font-size:12px;text-transform:uppercase}
+  header h1{font-size:34px;margin:8px 0 6px;letter-spacing:-.5px}
+  header p{color:var(--muted);max-width:600px;margin:0 auto}
+  .badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:20px}
+  .badge{font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+  .b-ok{color:var(--green);border-color:#1f5f47}
+  .b-wait{color:var(--amber);border-color:#5f4a1f}
+  .b-live{color:var(--green);border-color:#1f5f47;background:#0e2a20}
+  /* layout */
+  section{padding:34px 0 6px}
+  .stitle{display:flex;align-items:center;gap:10px;font-size:20px;margin-bottom:4px}
+  .stitle .n{width:28px;height:28px;border-radius:8px;background:var(--teal-d);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800}
+  .ssub{color:var(--muted);font-size:14px;margin:0 0 18px 38px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:14px}
+  .card{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 16px;text-decoration:none;transition:transform .08s,border-color .2s,background .2s}
+  .card:hover{transform:translateY(-2px);border-color:var(--teal);background:var(--card2)}
+  .card .ico{font-size:22px}
+  .card h3{font-size:15.5px;margin:8px 0 3px}
+  .card p{font-size:13px;color:var(--muted)}
+  .card .tag{display:inline-block;margin-top:9px;font-size:11px;font-weight:700;color:var(--teal);border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+  .card.live h3::after{content:" 🟢";font-size:12px}
+  /* learning path */
+  .path{counter-reset:step;display:grid;gap:10px}
+  .pstep{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none}
+  .pstep:hover{border-color:var(--teal)}
+  .pstep::before{counter-increment:step;content:counter(step);flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--teal-d);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+  .pstep b{font-size:15px}.pstep span{color:var(--muted);font-size:13px;display:block}
+  /* status panel */
+  .status{background:linear-gradient(160deg,#13233f,#0f1a30);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .status h3{font-size:17px;margin-bottom:14px}
+  .srow{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line);font-size:14.5px}
+  .srow:first-of-type{border-top:none}
+  .dot{flex-shrink:0;margin-top:6px;width:9px;height:9px;border-radius:50%}
+  .d-ok{background:var(--green)}.d-wait{background:var(--amber)}.d-pause{background:var(--muted)}
+  .srow b{color:var(--ink)} .srow .m{color:var(--muted)}
+  .next{margin-top:18px;background:#0e2a20;border:1px solid #1f5f47;border-radius:12px;padding:16px}
+  .next h4{color:var(--green);font-size:14px;margin-bottom:8px}
+  .next ol{margin-left:18px;font-size:14px} .next li{margin:4px 0}
+  .hint{font-size:12px;color:var(--muted);margin-top:8px;margin-left:38px}
+  footer{text-align:center;color:var(--muted);font-size:12.5px;margin-top:40px;padding-top:20px;border-top:1px solid var(--line)}
+  @media(max-width:560px){header h1{font-size:26px}.ssub,.hint{margin-left:0}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">Centro de Mando</div>
+    <h1>Negocio B2B · WhatsApp para comercios 🇦🇷</h1>
+    <p>Tu hub de acceso a todo: productos, ventas, specs y estado. Empezá por “Por dónde arrancar”.</p>
+    <div class="badges">
+      <span class="badge b-ok">✅ Producto construido</span>
+      <span class="badge b-ok">✅ Kit de ventas listo</span>
+      <span class="badge b-live">🟢 Landing online</span>
+      <span class="badge b-wait">⏳ Meta (SMS) pendiente</span>
+      <span class="badge b-wait">⏸️ Hosting diferido</span>
+    </div>
+  </div>
+</header>
+
+<!-- 0. POR DÓNDE ARRANCAR -->
+<section class="wrap">
+  <div class="stitle"><span class="n">★</span> Por dónde arrancar (orden de lectura)</div>
+  <p class="ssub">15 minutos para entender todo el negocio, de lo general a lo concreto.</p>
+  <div class="path">
+    <a class="pstep" href="https://github.com/xvirs/b2b-hub/blob/main/CLAUDE.md"><div><b>1 · Mapa del negocio</b><span>Qué es cada cosa y dónde está (este es el resumen).</span></div></a>
+    <a class="pstep" href="https://github.com/xvirs/b2b-hub/blob/main/Gestion%20Wssp/PRODUCTO.md"><div><b>2 · Negocio y pricing</b><span>Mercado, dolor (no-shows), precios, competencia, riesgos.</span></div></a>
+    <a class="pstep" href="https://github.com/xvirs/b2b-hub/blob/main/Planes-B2B/00-INDICE.md"><div><b>3 · Specs / Planes</b><span>El producto en detalle: motor + verticales. Empezá por 01-NUCLEO-MOTOR.</span></div></a>
+    <a class="pstep" href="https://github.com/xvirs/b2b-hub/blob/main/Ventas/KIT-VENTAS-SALONES.md"><div><b>4 · Cómo vender</b><span>Pitch de 90s, calculadora del dolor, 8 objeciones.</span></div></a>
+    <a class="pstep" href="https://github.com/xvirs/b2b-hub/blob/main/Ventas/guia-prospeccion-cordoba.md"><div><b>5 · A quién venderle</b><span>Zonas de Córdoba + receta para sacar prospectos reales.</span></div></a>
+  </div>
+  <p class="hint">💡 Los archivos <code>.md</code> se leen mejor abiertos en tu editor; los <code>.html</code> abren lindo en el navegador.</p>
+</section>
+
+<!-- 1. PRODUCTOS -->
+<section class="wrap">
+  <div class="stitle"><span class="n">1</span> Productos B2B</div>
+  <p class="ssub">Un motor común (Next.js + Postgres + WhatsApp Cloud API) → muchos verticales.</p>
+  <div class="grid">
+    <a class="card" href="https://github.com/xvirs/b2b-hub/blob/main/turnero/CLAUDE.md">
+      <div class="ico">✂️</div><h3>Turnero · Salones</h3>
+      <p>El motor + bot de turnos por WhatsApp. Fases 0-5, 49 tests. Falta solo encenderlo en vivo.</p>
+      <span class="tag">CONSTRUIDO · repo turnero/</span>
+    </a>
+    <a class="card" href="https://github.com/xvirs/b2b-hub/blob/main/Planes-B2B/02-VERTICAL-CANCHAS.md">
+      <div class="ico">⚽</div><h3>Canchas</h3>
+      <p>Reservas + señas con Mercado Pago. Spec lista, sin construir.</p>
+      <span class="tag">ESPECIFICADO</span>
+    </a>
+    <a class="card" href="https://github.com/xvirs/b2b-hub/blob/main/Planes-B2B/03-VERTICAL-VETERINARIAS.md">
+      <div class="ico">🐾</div><h3>Veterinarias</h3>
+      <p>Turnos + recordatorios sanitarios (vacunas). Spec lista.</p>
+      <span class="tag">ESPECIFICADO</span>
+    </a>
+    <a class="card" href="https://github.com/xvirs/b2b-hub/blob/main/Planes-B2B/04-VERTICAL-GIMNASIOS.md">
+      <div class="ico">🏋️</div><h3>Gimnasios</h3>
+      <p>Cuotas + morosidad + recordatorios. Spec lista.</p>
+      <span class="tag">ESPECIFICADO</span>
+    </a>
+    <a class="card" href="https://github.com/xvirs/b2b-hub/blob/main/IDEAS-B2B-LOCALES.md">
+      <div class="ico">💡</div><h3>Banco de ideas</h3>
+      <p>Próximos verticales: reseñas Google, estudios contables, distribuidoras…</p>
+      <span class="tag">IDEAS</span>
+    </a>
+  </div>
+</section>
+
+<!-- 2. KIT DE VENTAS -->
+<section class="wrap">
+  <div class="stitle"><span class="n">2</span> Kit de ventas</div>
+  <p class="ssub">Todo para conseguir el primer cliente. Salón (vertical 1).</p>
+  <div class="grid">
+    <a class="card" href="https://github.com/xvirs/b2b-hub/blob/main/Ventas/KIT-VENTAS-SALONES.md">
+      <div class="ico">🎤</div><h3>Kit (guion)</h3><p>Pitch 90s + 8 objeciones + precios anclados al dolor.</p><span class="tag">LEER</span></a>
+    <a class="card" href="https://github.com/xvirs/b2b-hub/blob/main/Ventas/guia-prospeccion-cordoba.md">
+      <div class="ico">🗺️</div><h3>Guía de prospección</h3><p>Zonas de Córdoba + cómo sacar datos reales de Maps/IG.</p><span class="tag">LEER</span></a>
+    <a class="card" href="https://github.com/xvirs/b2b-hub/blob/main/Ventas/planilla-seguimiento-prospectos.xlsx">
+      <div class="ico">📊</div><h3>Planilla (Excel)</h3><p>Mini-CRM con embudo automático. Cargá y trackeá.</p><span class="tag">USAR</span></a>
+    <a class="card" href="Ventas/demo-bot-whatsapp.html">
+      <div class="ico">📱</div><h3>Demo del bot</h3><p>Conversaciones reales para mostrar en el cel.</p><span class="tag">MOSTRAR</span></a>
+    <a class="card live" href="https://xvirs.github.io/turnero-landing/" target="_blank">
+      <div class="ico">🌐</div><h3>Landing (ONLINE)</h3><p>Con calculadora de no-shows. Para tu bio de IG y mandar por WhatsApp.</p><span class="tag">xvirs.github.io/turnero-landing</span></a>
+  </div>
+</section>
+
+<!-- 3. NEGOCIO Y SPECS -->
+<section class="wrap">
+  <div class="stitle"><span class="n">3</span> Negocio, specs y visión</div>
+  <p class="ssub">La documentación de fondo (la fuente de verdad).</p>
+  <div class="grid">
+    <a class="card" href="https://github.com/xvirs/b2b-hub/blob/main/CLAUDE.md"><div class="ico">🧭</div><h3>Mapa del negocio</h3><p>Estructura, estado y cómo trabajar acá.</p><span class="tag">INDICE</span></a>
+    <a class="card" href="https://github.com/xvirs/b2b-hub/blob/main/Planes-B2B/00-INDICE.md"><div class="ico">📐</div><h3>Specs / Planes</h3><p>Convenciones + planes de cada vertical + técnico (T1/T2/T3).</p><span class="tag">SPECS</span></a>
+    <a class="card" href="https://github.com/xvirs/b2b-hub/blob/main/Gestion%20Wssp/PRODUCTO.md"><div class="ico">💵</div><h3>Negocio y pricing</h3><p>Mercado, precios, competencia, métricas, riesgos.</p><span class="tag">NEGOCIO</span></a>
+    <a class="card" href="PLAN-MAESTRO.html"><div class="ico">🗂️</div><h3>Plan maestro visual</h3><p>La visión estratégica del portfolio en una vista.</p><span class="tag">VISIÓN</span></a>
+    <a class="card" href="https://github.com/xvirs/turnero" target="_blank"><div class="ico">⚙️</div><h3>Código (GitHub)</h3><p>Repo privado del motor. Corre local; sin URL pública aún.</p><span class="tag">PRIVADO</span></a>
+  </div>
+</section>
+
+<!-- 4. ESTADO + PRÓXIMOS PASOS -->
+<section class="wrap">
+  <div class="stitle"><span class="n">4</span> Estado y próximos pasos</div>
+  <div class="status">
+    <h3>¿Dónde estamos?</h3>
+    <div class="srow"><span class="dot d-ok"></span><div><b>Producto (Turnero/Salones)</b> — <span class="m">construido y testeado (49 tests). Agenda, bot, recordatorios, panel. Listo.</span></div></div>
+    <div class="srow"><span class="dot d-ok"></span><div><b>Kit de ventas + landing online</b> — <span class="m">listos para salir a vender hoy.</span></div></div>
+    <div class="srow"><span class="dot d-wait"></span><div><b>Meta WhatsApp</b> — <span class="m">bloqueado: el SMS de verificación no llega (ruteo a Argentina). Reintentar mañana / desde compu.</span></div></div>
+    <div class="srow"><span class="dot d-pause"></span><div><b>Hosting del producto</b> — <span class="m">diferido. Vercel Hobby bloquea uso comercial → al lanzar, Vercel Pro (~US$20) o Railway.</span></div></div>
+
+    <div class="next">
+      <h4>▶ Próximos 3 pasos (lo que mueve la plata)</h4>
+      <ol>
+        <li>Cargá ~20 salones en la planilla (Güemes, Rafael Núñez, Nueva Córdoba).</li>
+        <li>10 visitas una mañana con la demo en el cel → meta: <b>3 “sí, lo pruebo”</b>.</li>
+        <li>Apenas tengas un “sí” o ande el SMS → encendemos Meta + hosting (minutos) y va en vivo.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Negocio B2B · Córdoba 🇦🇷 · Hub local — abrilo desde <code>B2B-SaaS/index.html</code><br>
+  Contacto: WhatsApp +54 9 351 7719799 · IG @xaviereloy.r
+</footer>
+
+</body>
+</html>
