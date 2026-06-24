@@ -75,11 +75,11 @@
     <h1>Negocio B2B · WhatsApp para comercios 🇦🇷</h1>
     <p>Tablero único: avances, pendientes, accesos y todo lo importante en un lugar.</p>
     <div class="badges">
-      <span class="badge b-ok">✅ Producto construido</span>
+      <span class="badge b-live">🟢 En producción (Railway)</span>
+      <span class="badge b-live">🟢 WhatsApp en vivo</span>
+      <span class="badge b-ok">✅ Login + RLS (Fase 5)</span>
       <span class="badge b-ok">✅ Kit de ventas listo</span>
       <span class="badge b-live">🟢 Landing online</span>
-      <span class="badge b-wait">⏳ Meta en revisión (~48h)</span>
-      <span class="badge b-wait">⏸️ Hosting a definir</span>
     </div>
   </div>
 </header>
@@ -89,32 +89,32 @@
   <div class="stitle"><span class="n">📊</span> Avances y pendientes</div>
   <p class="ssub">Dónde estamos hoy. Actualizado al 23/06/2026.</p>
   <div class="status" style="margin-bottom:16px">
-    <div class="srow"><span class="dot d-ok"></span><div><b>Producto (Turnero / Salones)</b> — <span class="m">construido y testeado (49 tests): agenda, bot de WhatsApp, recordatorios, panel completo.</span></div></div>
+    <div class="srow"><span class="dot d-ok"></span><div><b>Producto EN PRODUCCIÓN 🚀</b> — <span class="m">bot de WhatsApp real andando 24/7 en Railway. Una reserva completa por chat crea el turno + recordatorios. Probado e2e.</span></div></div>
+    <div class="srow"><span class="dot d-ok"></span><div><b>WhatsApp en vivo</b> — <span class="m">cuenta Meta verificada, número + token permanente, webhook + cron (recordatorios cada 15 min) funcionando.</span></div></div>
+    <div class="srow"><span class="dot d-ok"></span><div><b>Seguridad (Fase 5)</b> — <span class="m">login con contraseña + aislamiento de datos por RLS (rol restringido). Listo para clientes reales en el panel.</span></div></div>
     <div class="srow"><span class="dot d-ok"></span><div><b>Kit de ventas + landing + hub</b> — <span class="m">listos y publicados online.</span></div></div>
-    <div class="srow"><span class="dot d-ok"></span><div><b>Cuenta Meta + app + número de prueba</b> — <span class="m">creados y verificados (marca Automatiza XER).</span></div></div>
-    <div class="srow"><span class="dot d-wait"></span><div><b>Verificación del negocio (Meta)</b> — <span class="m">PRESENTADA, en revisión ~48h. Hace falta para que WhatsApp pueda enviar.</span></div></div>
-    <div class="srow"><span class="dot d-pause"></span><div><b>Hosting del producto</b> — <span class="m">a definir al lanzar (Vercel Pro ~US$20 o Railway). El panel hoy corre local.</span></div></div>
+    <div class="srow"><span class="dot d-wait"></span><div><b>Falta para vender</b> — <span class="m">por cada salón: su número de producción + plantilla de recordatorio aprobada por Meta (24-48h). Y salir a conseguir los primeros clientes.</span></div></div>
   </div>
   <div class="cols">
     <div class="panel">
       <h4 class="ok">Hecho</h4>
       <ul>
-        <li class="d">Motor + bot (Fases 0–5), 49 tests</li>
-        <li class="d">Kit de ventas completo</li>
-        <li class="d">Landing y hub publicados</li>
-        <li class="d">Marca Automatiza XER (mail + Facebook)</li>
-        <li class="d">Cuenta dev + app Turnero + nº de prueba</li>
-        <li class="d">Verificación del negocio enviada</li>
+        <li class="d">Producto Fases 0–5 (49 tests) EN PRODUCCIÓN</li>
+        <li class="d">WhatsApp real: bot + recordatorios en vivo 24/7</li>
+        <li class="d">Hosting Railway + token permanente + cron</li>
+        <li class="d">Login con contraseña + RLS (datos aislados)</li>
+        <li class="d">Kit de ventas + landing + hub online</li>
+        <li class="d">Marca Automatiza XER + cuenta Meta verificada</li>
       </ul>
     </div>
     <div class="panel">
       <h4 class="wait">Pendiente / próximo</h4>
       <ul>
-        <li class="t">Meta aprueba la verificación (~48h, avisa por mail)</li>
-        <li class="n">Pre-vender: cargar salones → visitas → 3 "sí"</li>
-        <li class="n">Al aprobar: token + webhook (túnel) → bot en vivo</li>
-        <li class="n">Definir hosting (Vercel Pro / Railway)</li>
-        <li class="n">Fase 5: auth real + RLS FORCE (endurecer)</li>
+        <li class="n">VENDER: cargar salones → visitas → primeros 2-3 "sí"</li>
+        <li class="n">Por cada cliente: su número + plantilla aprobada por Meta</li>
+        <li class="n">Por cada cliente: cargar sus servicios/equipo + usuario</li>
+        <li class="n">A escala: Tech Provider + alta self-service (Embedded Signup)</li>
+        <li class="n">Opcional: RLS también en el bot · 2ª vertical</li>
       </ul>
     </div>
   </div>
@@ -147,7 +147,8 @@
     <a class="card" href="https://developers.facebook.com/apps/" target="_blank"><div class="ico">🟦</div><h3>Meta · Consola dev</h3><p>App "Turnero" + WhatsApp API.</p><span class="tag">META</span></a>
     <a class="card" href="https://business.facebook.com/wa/manage/" target="_blank"><div class="ico">💬</div><h3>WhatsApp Manager</h3><p>Estado del número, plantillas, calidad.</p><span class="tag">META</span></a>
     <a class="card" href="https://business.facebook.com/settings" target="_blank"><div class="ico">🏢</div><h3>Business Settings</h3><p>Portfolio Automatiza XER + verificación.</p><span class="tag">META</span></a>
-    <a class="card" href="https://vercel.com/xvirs-projects/turnero" target="_blank"><div class="ico">▲</div><h3>Vercel</h3><p>Hosting (a definir / bloqueado en Hobby).</p><span class="tag">INFRA</span></a>
+    <a class="card live" href="https://turneroweb-production.up.railway.app/login" target="_blank"><div class="ico">🖥️</div><h3>Panel (producción)</h3><p>El panel del salón, en vivo. Login con contraseña.</p><span class="tag">EN VIVO</span></a>
+    <a class="card" href="https://railway.com/dashboard" target="_blank"><div class="ico">🚂</div><h3>Railway</h3><p>Hosting 24/7 del producto. Logs, variables, deploys.</p><span class="tag">INFRA</span></a>
     <a class="card" href="https://console.neon.tech/" target="_blank"><div class="ico">🐘</div><h3>Neon</h3><p>Base de datos PostgreSQL.</p><span class="tag">INFRA</span></a>
     <a class="card" href="https://instagram.com/xaviereloy.r" target="_blank"><div class="ico">📸</div><h3>Instagram</h3><p>@xaviereloy.r (marca / contacto).</p><span class="tag">REDES</span></a>
   </div>
